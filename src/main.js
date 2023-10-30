@@ -86,11 +86,11 @@
         case 3:timing = timing4;break;
       }
       for(var i=0;i<timing.length;i++){
-        if(timer < timing[i]){
+        if(timer < parseInt(timing[i]*10)){
           this.setState({
             commentReader: i
           });
-          return timing[i]-timer
+          return parseInt(timing[i]*10)-timer
         }
       }
       return 0
