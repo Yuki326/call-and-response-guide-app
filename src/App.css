@@ -1,3 +1,69 @@
+.body{
+  position:absolute;
+  background: linear-gradient(0deg ,rgb(211, 198, 47), rgb(234,164,5));
+  top: 0;
+  left:10;
+  width:100vw;
+  height:100%;
+}
+.main{
+  top: 0;
+  left:100px;
+}
+div.musicSelect{
+  display: flex;
+  width:80vw;
+  justify-content: space-between;
+}
+a.btn-solid {
+  color: #fff;
+  border-top: 4px solid #48ecc4;
+  border-right: 4px solid #0a5f4a;
+  border-bottom: 4px solid #0f745b;
+  border-left: 4px solid #8cf9de;
+  border-radius: 0;
+  background: #11a37f;
+}
+
+a.btn-solid:hover {
+  color: #fff;
+  border-top: 4px solid #0f745b;
+  border-right: 4px solid #8cf9de;
+  border-bottom: 4px solid #48ecc4;
+  border-left: 4px solid #0a5f4a;
+}
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+}
+a.btn--orange:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+.box{
+  position:absolute;
+  top:3vh;
+  left:50vw;
+  width:40vw;
+  height:40vh;
+  opacity:0.6;
+  font-size:1.5rem;
+  overflow-y:scroll;
+  border: solid 3px black;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  overflow-y:scroll;
+}
+.box p{
+  color:white;
+  opacity:1;
+}
 .App {
   text-align: center;
 }
@@ -14,7 +80,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f5bab6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
