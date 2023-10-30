@@ -142,6 +142,7 @@
               <a className={"btn btn--orange btn--cubic btn--shadow"} onClick={()=> this.setMusic(musicID)}>{music}</a>
             ))}
           </div>
+          <p>※聖!! ロリ神レクイエム☆以外未対応</p>
           
         </main>
       );
