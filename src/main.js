@@ -56,6 +56,7 @@
     constructor(props) {
       super(props);
       this.state = {
+        isStart: false,
         timer: 0,
         leftTime: 0,
         nextComment: "",
@@ -86,7 +87,7 @@
         case 3:timing = timing4;break;
       }
       for(var i=0;i<timing.length;i++){
-        if(timer < parseInt(timing[i]*10)){
+        if(timer <= parseInt(timing[i]*10)){
           this.setState({
             commentReader: i
           });
@@ -97,10 +98,11 @@
     }
     // コンポーネントがマウントされた後に実行
     componentDidMount() {
+
       // ----------- ①
       setInterval(() => {
         this.setState({
-          timer: this.state.timer + 1,
+          timer: this.state.timer + (this.state.isStart ? 1 : 0),
           leftTime: this.getLeftTime(this.state.nowMusicID,this.state.timer),
           nextComment:this.getNextComment(this.state.nowMusicID,this.state.commentReader),
         });
@@ -119,13 +121,23 @@
     start(){
       const isNormalMode = (this.state.Difficulty === "Normal")
       this.setState({
-        timer:0
+        timer:0,
+        isStart:true
       })
     }
     
+    reset(){
+      const isNormalMode = (this.state.Difficulty === "Normal")
+      this.setState({
+        timer:0,
+        isStart:false
+      })
+    }
     setMusic(musicID){
       this.setState({
-        nowMusicID:musicID
+        nowMusicID:musicID,
+        timer:0,
+        isStart:false
       })
     }
     render() {
@@ -135,7 +147,10 @@
           <h2>次の合いの手：{this.state.nextComment}</h2>
           <h2>次の合いの手まで：{this.state.leftTime/10}</h2>
           <h4>最初の合いの手のタイミングで「スタート」を押してね！</h4>
+          
           <a className={"btn btn-solid"} onClick={()=> this.start()}>スタート</a>
+          <a className={"btn btn-solid"} onClick={()=> this.reset()}>リセット</a>
+
           <h2>曲選択</h2>
           <div className={"musicSelect"}>
             {musicList.map((music,musicID) => (
@@ -143,7 +158,8 @@
             ))}
           </div>
           <p>※聖!! ロリ神レクイエム☆以外未対応</p>
-          
+          <h3>タイマー{this.state.timer/10}</h3>
+
         </main>
       );
     }
